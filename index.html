@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APJ Abdul Kalam Technological University — Student Portal</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%2309254d'/><path d='M12 3L2 8l10 5 10-5-10-5z' fill='%23f59e0b'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       0. FULL-SCREEN LOGIN PAGE (EXACT REPLICA FROM SCREENSHOT)
+       ==================================================================== -->
+  <div id="login-screen" class="login-screen-wrapper">
+    <!-- Top Left University Branding -->
+    <div class="login-top-brand">
+      <div class="ktu-emblem">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L6 11V23C6 34.2 13.8 44.5 24 47C34.2 44.5 42 34.2 42 23V11L24 4Z" fill="#1e40af" stroke="#ffffff" stroke-width="2"/>
+          <path d="M24 8L10 13.5V23C10 32 16 39.5 24 42C32 39.5 38 32 38 23V13.5L24 8Z" fill="#0f172a"/>
+          <circle cx="24" cy="22" r="8" fill="#f59e0b"/>
+          <path d="M24 16V28M18 22H30" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M14 34H34" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="ktu-title-group">
+        <span class="ktu-main-title">APJ Abdul Kalam Technological University</span>
+        <span class="ktu-tagline">Innovate | Educate | Empower</span>
+      </div>
+    </div>
+
+    <!-- Center Login Form Card -->
+    <div class="login-center-container">
+      <div class="login-card-box">
+        <!-- KTU Shield Emblem -->
+        <div class="login-card-emblem">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4L6 11V23C6 34.2 13.8 44.5 24 47C34.2 44.5 42 34.2 42 23V11L24 4Z" fill="#1e40af" stroke="#ffffff" stroke-width="2"/>
+            <path d="M24 8L10 13.5V23C10 32 16 39.5 24 42C32 39.5 38 32 38 23V13.5L24 8Z" fill="#0f172a"/>
+            <circle cx="24" cy="22" r="8" fill="#f59e0b"/>
+            <path d="M24 16V28M18 22H30" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M14 34H34" stroke="#ffffff" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <h1 class="login-card-title">
+          APJ Abdul Kalam<br>Technological University
+        </h1>
+        <div class="login-card-subtitle">STUDENT PORTAL</div>
+        <p class="login-card-desc">Welcome back! Please login to continue.</p>
+
+        <!-- Error Alert -->
+        <div id="login-error-msg" class="login-error-alert" role="alert">
+          Invalid username or password. Please use credentials: <strong>LBT24CS091</strong> / <strong>12345</strong>
+        </div>
+
+        <form id="ktu-login-form" class="login-form-container">
+          <!-- Username / Register Number Input -->
+          <div class="login-input-group">
+            <span class="login-input-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input type="text" id="login-username" class="login-input-field" placeholder="Username / Register Number" required autocomplete="username" value="LBT24CS091">
+          </div>
+
+          <!-- Password Input -->
+          <div class="login-input-group">
+            <span class="login-input-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <input type="password" id="login-password" class="login-input-field" placeholder="Password" required autocomplete="current-password" value="12345">
+            <button type="button" id="login-toggle-pw-btn" class="login-toggle-password-btn" aria-label="Toggle password visibility">
+              <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Options Row: Remember Me & Forgot Password -->
+          <div class="login-options-row">
+            <label class="login-remember-box">
+              <input type="checkbox" id="login-remember" checked>
+              <span>Remember me</span>
+            </label>
+            <a href="javascript:void(0)" id="login-forgot-pw-link" class="login-forgot-link">Forgot Password?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-login-submit" id="btn-login-submit">Login</button>
+        </form>
+
+        <!-- Demo credentials quick hint -->
+        <div class="login-demo-pill" id="demo-credentials-pill" title="Click to autofill credentials">
+          <span>Demo Student: <strong>LBT24CS091</strong> &bull; Password: <strong>12345</strong></span>
+        </div>
+
+        <div class="login-card-help-footer">
+          Need Help? <a href="javascript:void(0)" id="login-support-link">Contact IT Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <footer class="login-screen-bottom-copy">
+      &copy; 2024 APJ Abdul Kalam Technological University. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- ====================================================================
+       1. TOP HEADER (EXACT REPLICA FROM SCREENSHOTS)
+       ==================================================================== -->
+  <header class="ktu-top-header" role="banner">
+    <div class="header-brand-container">
+      <div class="ktu-emblem">
+        <!-- KTU University Shield Emblem SVG -->
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L6 11V23C6 34.2 13.8 44.5 24 47C34.2 44.5 42 34.2 42 23V11L24 4Z" fill="#1e40af" stroke="#ffffff" stroke-width="2"/>
+          <path d="M24 8L10 13.5V23C10 32 16 39.5 24 42C32 39.5 38 32 38 23V13.5L24 8Z" fill="#0f172a"/>
+          <circle cx="24" cy="22" r="8" fill="#f59e0b"/>
+          <path d="M24 16V28M18 22H30" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M14 34H34" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="ktu-title-group">
+        <span class="ktu-main-title">APJ Abdul Kalam Technological University</span>
+        <span class="ktu-tagline">Innovate | Educate | Empower</span>
+      </div>
+    </div>
+
+    <!-- Header Right Controls -->
+    <div class="header-user-controls">
+      <!-- Notification Bell -->
+      <button class="header-ctrl-item bell-btn" id="header-bell-btn" title="View Notifications" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class="bell-badge">3</span>
+      </button>
+
+      <!-- User Profile Chip -->
+      <div class="user-profile-btn" id="user-profile-pill" tabindex="0">
+        <div class="user-avatar-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <span class="user-name-text">Welcome Hasniya Hamsa</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:0.8;">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+
+      <!-- Change Password -->
+      <a href="javascript:void(0)" class="header-ctrl-item" id="btn-change-password">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+        <span>Change Password</span>
+      </a>
+
+      <!-- Logout -->
+      <a href="javascript:void(0)" class="header-ctrl-item" id="btn-logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+          <line x1="12" y1="2" x2="12" y2="12"></line>
+        </svg>
+        <span>Logout</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       2. SUPPORT CONTACT NOTICE BANNER (FROM SCREENSHOTS)
+       ==================================================================== -->
+  <div class="support-banner" id="support-banner">
+    <div class="support-banner-left">
+      <!-- Loudspeaker Icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+      <span>Your contact number for support from University is : <span class="support-banner-number">91889922754</span></span>
+    </div>
+    <button class="banner-close-btn" id="close-support-banner-btn" aria-label="Dismiss banner">&times;</button>
+  </div>
+
+  <!-- ====================================================================
+       3. HORIZONTAL NAVIGATION TABS (EXACT REPLICA)
+       ==================================================================== -->
+  <nav class="ktu-main-nav" aria-label="Main Navigation">
+    <ul class="nav-tabs-list">
+      <li class="nav-tab-item">
+        <a href="#home" class="nav-tab-link active" data-tab="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Home
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#student" class="nav-tab-link" data-tab="student">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Student
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#exam" class="nav-tab-link" data-tab="exam">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Exam
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#result" class="nav-tab-link" data-tab="result">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+          </svg>
+          Result
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#grievance" class="nav-tab-link" data-tab="grievance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Grievance
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#forms" class="nav-tab-link" data-tab="forms">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Forms
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="#suraksha" class="nav-tab-link" data-tab="suraksha">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          Suraksha
+        </a>
+      </li>
+      <li class="nav-tab-item">
+        <a href="javascript:void(0)" class="nav-tab-link" id="nav-ai-assistant-tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#0284c7;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+          </svg>
+          Ask AI
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ====================================================================
+       4. TWO-COLUMN PORTAL WRAPPER
+       ==================================================================== -->
+  <div class="portal-wrapper">
+
+    <!-- LEFT SIDEBAR (DYNAMIC: ADMINISTRATION ON HOME, EXAM MANAGEMENT ON EXAMS) -->
+    <aside class="portal-sidebar" id="portal-sidebar">
+
+      <!-- Sidebar 1: Administration Sidebar (Visible on Home) -->
+      <div id="sidebar-administration">
+        <div class="sidebar-title-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Administration</span>
+        </div>
+
+        <div class="sidebar-menu-card" style="margin-top: 10px;">
+          <ul class="sidebar-menu-list">
+            <li>
+              <a href="#home" class="sidebar-link active" data-tab="home">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                  <span>Dashboard</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#home" class="sidebar-link" id="side-alerts-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  <span>Alerts</span>
+                </div>
+                <span class="sidebar-badge">3</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-payment-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  <span>Payment Request</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-contact-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <span>Update Contact Info</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-academic-calendar-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Academic Calendar</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-reports-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  <span>Reports</span>
+                </div>
+              </a>
+            </li>
+
+            <li class="sidebar-section-divider">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>New Features</span>
+            </li>
+
+            <li>
+              <a href="#student" class="sidebar-link" data-tab="student">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg>
+                  <span>Profile Settings</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-notif-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path></svg>
+                  <span>Notifications</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#grievance" class="sidebar-link" data-tab="grievance">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                  <span>Support &amp; Help</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Need Help Widget -->
+        <div class="sidebar-help-widget" style="margin-top: 14px;">
+          <div class="help-widget-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>Need Help?</span>
+          </div>
+          <p class="help-widget-desc">Check our help section or contact support for assistance.</p>
+          <a href="#grievance" class="help-widget-link" data-tab="grievance">Go to Help &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Sidebar 2: Exam Management Sidebar (Visible on Exam Tab) -->
+      <div id="sidebar-exam-management" style="display: none;">
+        <div class="sidebar-title-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Exam Management</span>
+        </div>
+
+        <div class="sidebar-menu-card" style="margin-top: 10px;">
+          <ul class="sidebar-menu-list">
+            <li>
+              <a href="#exam" class="sidebar-link active" data-tab="exam">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  <span>Examinations</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-eligibility-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                  <span>Eligibility</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-project-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <span>Project Work</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-cert-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  <span>First Chance Certificate Request</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-exam-reports-link">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  <span>Reports</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar 3: Result Management Sidebar (Visible on Result Tab) -->
+      <div id="sidebar-result-management" style="display: none;">
+        <div class="sidebar-title-card" style="background: linear-gradient(135deg, #0288d1 0%, #00838f 100%);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          <span style="font-style: italic; font-weight: 700;">Result Management</span>
+        </div>
+
+        <div class="sidebar-menu-card" style="margin-top: 10px;">
+          <ul class="sidebar-menu-list">
+            <li>
+              <a href="#result" class="sidebar-link active" id="side-result-gradecard" data-tab="result">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  <span>Semester Grade Card</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-result-pending">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  <span>Pending Results</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-result-change-req">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Exam Grade Change Request</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-result-low-pass">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  <span>Request Low Pass Grade</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="sidebar-link" id="side-result-reports">
+                <div class="sidebar-link-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  <span>Reports</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT PANEL -->
+    <main class="portal-main-panel" id="portal-main-panel">
+
+      <!-- ================================================================
+           VIEW A: HOME / DASHBOARD (SCREENSHOT 2 REPLICA)
+           ================================================================ -->
+      <section id="view-home" class="portal-view-container active">
+        <!-- Vivid Blue Dashboard Banner -->
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Dashboard</h2>
+            </div>
+          </div>
+          <div class="content-banner-right">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span id="current-datetime-stamp">Thu, 24 Apr 2025 | 10:24 AM</span>
+          </div>
+        </div>
+
+        <!-- White Card Content Container -->
+        <div class="content-body-card">
+
+          <!-- Row 1: Welcome Student Card + Fee Details Card -->
+          <div class="dash-row-grid-2">
+
+            <!-- Welcome Student Card -->
+            <div class="welcome-student-card">
+              <div class="welcome-top-group">
+                <div class="welcome-avatar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="welcome-message-text">
+                  <h3>Welcome</h3>
+                  <p>Here's your student dashboard. Stay updated and manage your academic information easily.</p>
+                </div>
+              </div>
+
+              <!-- Student Profile Meta -->
+              <div class="student-meta-fields">
+                <div class="meta-field-item">
+                  <span class="meta-field-label">Student Name</span>
+                  <span class="meta-field-value">Hasniya Hamsa</span>
+                </div>
+                <div class="meta-field-item">
+                  <span class="meta-field-label">Register No.</span>
+                  <span class="meta-field-value">LBT24CS091</span>
+                </div>
+              </div>
+
+              <a href="#student" class="view-profile-anchor" data-tab="student">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>View Profile &rarr;</span>
+              </a>
+            </div>
+
+            <!-- Fee Details Card -->
+            <div class="fee-details-card">
+              <div class="fee-card-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <path d="M6 12h.01M18 12h.01"></path>
+                </svg>
+                <span>Fee Details</span>
+              </div>
+              <div class="fee-card-content">
+                <div class="fee-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <path d="M10 13h4M10 10h4M10 16h2"></path>
+                  </svg>
+                </div>
+                <div class="fee-link-text">
+                  Click <a href="javascript:void(0)" id="fee-click-here">here</a> to view your fee details
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Row 2: Suraksha Card -->
+          <div class="suraksha-card">
+            <div class="suraksha-card-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Suraksha</span>
+            </div>
+
+            <div class="suraksha-content-row">
+              <div class="suraksha-left-info">
+                <div class="suraksha-icon-bubble">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div>
+                  Click <a href="javascript:void(0)" id="suraksha-profile-link" style="font-weight:600;">here</a> to view Suraksha Profile
+                </div>
+              </div>
+
+              <div class="suraksha-meta-year">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Academic Year: 2024 - 2025</span>
+              </div>
+
+              <div class="suraksha-status-badge">
+                <span class="status-dot-green"></span>
+                <span>Status: Enrolled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Alerts Card -->
+          <div class="alerts-card">
+            <div class="alerts-card-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Alerts</span>
+            </div>
+
+            <div class="alerts-row-item">
+              <div class="alerts-left-item">
+                <span class="alert-counter-badge">3</span>
+                <span>New update available in your student portal</span>
+              </div>
+              <a href="javascript:void(0)" class="view-all-alerts-link" id="view-all-alerts-btn">View All Alerts &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW B: EXAMINATIONS (SCREENSHOT 1 REPLICA)
+           ================================================================ -->
+      <section id="view-exam" class="portal-view-container" style="display: none;">
+        <!-- Vivid Blue Examination Header Banner with Book Watermark -->
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Examinations</h2>
+              <span class="banner-subtitle-text">Search and view examination notifications</span>
+            </div>
+          </div>
+
+          <div class="banner-watermark-icon">
+            <!-- Open Book Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Examinations Filter Box & Results -->
+        <div class="content-body-card">
+
+          <!-- Filter Card (Exact replica from Screenshot 1) -->
+          <div class="exam-filter-card">
+            <div class="exam-filters-row">
+              <div class="form-group-field">
+                <label for="exam-sem-select" class="form-field-label">Semester</label>
+                <select id="exam-sem-select" class="ktu-select-input">
+                  <option value="1">Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3" selected>Semester 3</option>
+                  <option value="4">Semester 4</option>
+                  <option value="5">Semester 5</option>
+                  <option value="6">Semester 6</option>
+                  <option value="7">Semester 7</option>
+                  <option value="8">Semester 8</option>
+                  <option value="all">All Semesters</option>
+                </select>
+              </div>
+
+              <div class="form-group-field">
+                <label for="exam-type-filter" class="form-field-label">Examination Type</label>
+                <select id="exam-type-filter" class="ktu-select-input">
+                  <option value="Regular" selected>Regular</option>
+                  <option value="Supplementary">Supplementary</option>
+                  <option value="Revaluation">Revaluation</option>
+                  <option value="Honors">Honors</option>
+                  <option value="Minors">Minors</option>
+                  <option value="all">All Types</option>
+                </select>
+              </div>
+
+              <!-- Search Button -->
+              <button class="btn-ktu-search" id="btn-exam-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Search</span>
+              </button>
+
+              <!-- Clear Filters Button -->
+              <button class="btn-ktu-clear" id="btn-exam-clear">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <polyline points="23 20 23 14 17 14"></polyline>
+                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                </svg>
+                <span>Clear Filters</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Alert / Notice Box (from Screenshot 1) -->
+          <div class="ktu-info-notice-banner" id="exam-info-banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span id="exam-banner-text">No exam definition for selected academic year.</span>
+          </div>
+
+          <!-- Matching Examination Records List -->
+          <div class="exam-results-list" id="exam-results-list" style="display: none;">
+            <!-- Rendered by app.js when matching notifications are found -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW C: RESULTS (SCREENSHOT REPLICA: SEMESTER GRADE CARD)
+           ================================================================ -->
+      <section id="view-result" class="portal-view-container" style="display: none;">
+        <!-- Vivid Blue Header Banner with Calendar icon and Book Watermark -->
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Semester Grade Card</h2>
+            </div>
+          </div>
+
+          <div class="banner-watermark-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="content-body-card">
+          <!-- Filter Card (Exact replica from Screenshot) -->
+          <div class="exam-filter-card">
+            <div class="exam-filters-row">
+              <div class="form-group-field">
+                <label for="result-sem-select" class="form-field-label">Semester</label>
+                <select id="result-sem-select" class="ktu-select-input">
+                  <option value="Select" selected>Select</option>
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+                  <option value="S3">S3</option>
+                  <option value="S4">S4</option>
+                  <option value="S5">S5</option>
+                  <option value="S6">S6</option>
+                  <option value="S7">S7</option>
+                  <option value="S8">S8</option>
+                </select>
+              </div>
+
+              <div class="form-group-field">
+                <label for="result-type-select" class="form-field-label">Exam Type</label>
+                <select id="result-type-select" class="ktu-select-input">
+                  <option value="Select" selected>Select</option>
+                  <option value="Regular">Regular</option>
+                  <option value="Supplementary">Supplementary</option>
+                  <option value="Honors">Honors</option>
+                  <option value="Minors">Minors</option>
+                  <option value="Revaluation">Revaluation</option>
+                </select>
+              </div>
+
+              <!-- Search Button -->
+              <button class="btn-ktu-search" id="btn-result-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Search</span>
+              </button>
+
+              <!-- Clear Filters Button -->
+              <button class="btn-ktu-clear" id="btn-result-clear">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <polyline points="23 20 23 14 17 14"></polyline>
+                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                </svg>
+                <span>Clear Filters</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Result Display Container (Matching the subtle light-blue background box in screenshot) -->
+          <div class="result-display-panel" id="result-display-panel" style="background:#eaf2fd; border:1px solid #d0e4f7; border-radius:6px; min-height:80px; padding:18px;">
+            <div id="result-empty-hint" style="color:#5e718d; font-size:0.85rem; display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:#1668c2;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span>Please select Semester and Exam Type, then click Search to view Semester Grade Card.</span>
+            </div>
+
+            <!-- Grade card details populated on search -->
+            <div id="result-details-content" style="display:none;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW D: STUDENT PROFILE
+           ================================================================ -->
+      <section id="view-student" class="portal-view-container" style="display: none;">
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Student Profile</h2>
+              <span class="banner-subtitle-text">Official registration details &amp; academic standing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body-card">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:16px;">
+              <h4 style="font-size:0.9rem; color:#1e293b; margin-bottom:12px; font-weight:700;">Personal Information</h4>
+              <p style="margin-bottom:6px;"><strong>Full Name:</strong> Hasniya Hamsa</p>
+              <p style="margin-bottom:6px;"><strong>Register Number:</strong> LBT24CS091</p>
+              <p style="margin-bottom:6px;"><strong>Institution:</strong> LBS Institute of Technology for Women, Thiruvananthapuram</p>
+              <p style="margin-bottom:6px;"><strong>Admission Year:</strong> 2024</p>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:16px;">
+              <h4 style="font-size:0.9rem; color:#1e293b; margin-bottom:12px; font-weight:700;">Academic Track</h4>
+              <p style="margin-bottom:6px;"><strong>Programme:</strong> B.Tech</p>
+              <p style="margin-bottom:6px;"><strong>Branch:</strong> Computer Science and Engineering</p>
+              <p style="margin-bottom:6px;"><strong>Current Semester:</strong> Semester 3</p>
+              <p style="margin-bottom:6px;"><strong>Scheme:</strong> 2024 Scheme</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW E: GRIEVANCE REDRESSAL TICKETS
+           ================================================================ -->
+      <section id="view-grievance" class="portal-view-container" style="display: none;">
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Grievance Redressal Tickets</h2>
+              <span class="banner-subtitle-text">Official student support &amp; grievance redressal portal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body-card">
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:12px 16px; border-radius:6px; margin-bottom:16px; font-size:0.85rem; color:#166534;">
+            <strong>KTU Support Desk:</strong> Contact helpline at <strong>91889922754</strong> or submit an official inquiry ticket below.
+          </div>
+
+          <form id="grievance-form" style="display:flex; flex-direction:column; gap:14px; max-width:680px;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+              <div>
+                <label style="font-size:0.775rem; font-weight:600; color:#475569;">Student Name</label>
+                <input type="text" class="ktu-select-input" value="Hasniya Hamsa" readonly>
+              </div>
+              <div>
+                <label style="font-size:0.775rem; font-weight:600; color:#475569;">Register Number</label>
+                <input type="text" class="ktu-select-input" value="LBT24CS091" readonly>
+              </div>
+            </div>
+
+            <div>
+              <label style="font-size:0.775rem; font-weight:600; color:#475569;">Query Category</label>
+              <select class="ktu-select-input" id="grievance-cat">
+                <option>Examination Registration Issue</option>
+                <option>Grade Card / Mark Verification</option>
+                <option>Revaluation &amp; Scrutiny</option>
+                <option>Fee Payment Discrepancy</option>
+                <option>General Academic Inquiries</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:0.775rem; font-weight:600; color:#475569;">Message Details</label>
+              <textarea class="ktu-select-input" rows="4" placeholder="Describe your grievance or academic inquiry..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-ktu-search" style="width:fit-content;">Submit Grievance Ticket</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW F: FORMS & DOWNLOADS
+           ================================================================ -->
+      <section id="view-forms" class="portal-view-container" style="display: none;">
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Forms &amp; Academic Circulars</h2>
+              <span class="banner-subtitle-text">Official KTU application formats and proformas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body-card">
+          <div class="exam-results-list">
+            <div class="exam-notif-card">
+              <h4 class="notif-title-h4">Application for Answer Script Scrutiny / Revaluation</h4>
+              <p class="notif-desc-p">Proforma for applying for re-totalling and photocopy of answer scripts.</p>
+              <a href="https://ktu.edu.in" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem; font-weight:600; color:#1668c2;">Download Form PDF &rarr;</a>
+            </div>
+            <div class="exam-notif-card">
+              <h4 class="notif-title-h4">Application for First Chance Certificate</h4>
+              <p class="notif-desc-p">Certificate format verifying completion of curriculum on first attempt.</p>
+              <a href="https://ktu.edu.in" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem; font-weight:600; color:#1668c2;">Download Form PDF &rarr;</a>
+            </div>
+            <div class="exam-notif-card">
+              <h4 class="notif-title-h4">Minor / Honours Degree Option Form</h4>
+              <p class="notif-desc-p">Registration proforma for enrolling into 20-credit specialization tracks.</p>
+              <a href="https://ktu.edu.in" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem; font-weight:600; color:#1668c2;">Download Form PDF &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW G: SURAKSHA PROFILE
+           ================================================================ -->
+      <section id="view-suraksha" class="portal-view-container" style="display: none;">
+        <div class="content-banner-header">
+          <div class="content-banner-left">
+            <div class="content-banner-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="banner-title-text">
+              <h2>Suraksha Insurance Profile</h2>
+              <span class="banner-subtitle-text">KTU Student Medical &amp; Accidental Insurance Scheme</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-body-card">
+          <div style="background:#faf5ff; border:1px solid #e9d5ff; border-radius:6px; padding:18px;">
+            <h4 style="font-size:0.95rem; font-weight:700; color:#6b21a8; margin-bottom:8px;">Student Insurance Coverage</h4>
+            <p style="margin-bottom:6px;"><strong>Student Name:</strong> Hasniya Hamsa</p>
+            <p style="margin-bottom:6px;"><strong>Enrolled Academic Year:</strong> 2024 - 2025</p>
+            <p style="margin-bottom:6px;"><strong>Policy Status:</strong> <span style="color:#16a34a; font-weight:700;">● Active / Enrolled</span></p>
+            <p style="margin-bottom:6px;"><strong>Coverage:</strong> Comprehensive Group Personal Accident Insurance for University Students.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       5. FOOTER (EXACT REPLICA FROM SCREENSHOTS)
+       ==================================================================== -->
+  <footer class="ktu-portal-footer" role="contentinfo">
+    <div class="footer-left-copy">
+      Copyright &copy; APJ Abdul Kalam Technological University 2014.
+    </div>
+    <div class="footer-right-powered">
+      &bull; Powered by KTU Portal
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       6. AI HELP CHATBOT (FLOATING WIDGET)
+       ==================================================================== -->
+  <button id="floating-chat-trigger" class="chatbot-floating-trigger" aria-label="Open KTU AI Help Chatbot">
+    <div class="trigger-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </div>
+    <span class="trigger-text">KTU AI Assistant</span>
+    <span class="trigger-badge">Live</span>
+  </button>
+
+  <div id="chatbot-modal" class="chatbot-modal" role="dialog" aria-modal="true" aria-label="KTU AI Assistant Chatbot">
+    <header class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+          </svg>
+        </div>
+        <div>
+          <div class="chat-header-title">KTU Smart Assistant</div>
+          <div class="chat-header-status">&bull; Online Guidance</div>
+        </div>
+      </div>
+      <div>
+        <button id="chat-close-btn" class="chat-ctrl-btn" title="Close chat">&times;</button>
+      </div>
+    </header>
+
+    <div class="chat-messages" id="chat-messages">
+      <div class="message-bubble-row assistant">
+        <div class="message-bubble">
+          👋 Hello Hasniya! I am your KTU Smart Assistant. Ask me anything about examination schedules, result releases, fee deadlines, or university announcements.
+        </div>
+        <span class="msg-time">Just now</span>
+      </div>
+    </div>
+
+    <div class="chat-suggestions-box">
+      <div class="suggestions-title">Quick Inquiries:</div>
+      <div class="suggestions-chips">
+        <button class="chip-btn" data-query="How do I find my semester exam notification?">Find exam notification</button>
+        <button class="chip-btn" data-query="Where can I check supplementary results?">Supplementary results</button>
+        <button class="chip-btn" data-query="How do Minor and Honours degree results work?">Minor &amp; Honours rules</button>
+        <button class="chip-btn" data-query="How do I contact the university?">Contact KTU Helpdesk</button>
+      </div>
+    </div>
+
+    <div class="chat-input-bar">
+      <form id="chat-form" class="chat-input-form">
+        <input type="text" id="chat-input" class="chat-input-field" placeholder="Type your query..." autocomplete="off">
+        <button type="submit" class="chat-send-btn" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       7. ACADEMIC CALENDAR MODAL
+       ==================================================================== -->
+  <div id="academic-calendar-modal" class="academic-cal-modal" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title" style="display:none;">
+    <div class="academic-cal-overlay" id="cal-modal-overlay"></div>
+    <div class="academic-cal-dialog">
+      <header class="academic-cal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:34px; height:34px; border-radius:6px; background:#1668c2; color:#fff; display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 id="cal-modal-title" style="font-size:1.05rem; font-weight:700; color:#0f2b48;">KTU Academic Calendar 2024–2025</h3>
+            <span style="font-size:0.75rem; color:#64748b;">APJ Abdul Kalam Technological University Official Schedule</span>
+          </div>
+        </div>
+        <button id="close-cal-modal-btn" style="color:#64748b; font-size:1.4rem; padding:4px 8px; line-height:1; cursor:pointer;" aria-label="Close modal">&times;</button>
+      </header>
+
+      <div class="academic-cal-body">
+        <div style="display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid #e2e8f0; padding-bottom:8px;">
+          <button class="cal-tab-btn active" id="cal-tab-even" data-sem="even" style="padding:6px 14px; border-radius:16px; font-size:0.8rem; font-weight:700; background:#1668c2; color:#fff; cursor:pointer;">Even Semesters (S2, S4, S6, S8)</button>
+          <button class="cal-tab-btn" id="cal-tab-odd" data-sem="odd" style="padding:6px 14px; border-radius:16px; font-size:0.8rem; font-weight:600; background:#f1f5f9; color:#475569; cursor:pointer;">Odd Semesters (S1, S3, S5, S7)</button>
+        </div>
+
+        <!-- Even Semester Schedule -->
+        <div id="cal-content-even" class="cal-schedule-pane">
+          <div class="cal-table-wrapper">
+            <table class="cal-table">
+              <thead>
+                <tr>
+                  <th>Event / Milestone</th>
+                  <th>Scheduled Date / Period</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Commencement of Classes</strong></td>
+                  <td>15 Jan 2025</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Course Registration &amp; Advisory Selection</td>
+                  <td>15 Jan 2025 – 22 Jan 2025</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>First Internal Assessment (Test 1)</td>
+                  <td>03 Mar 2025 – 08 Mar 2025</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Second Internal Assessment (Test 2)</td>
+                  <td>21 Apr 2025 – 26 Apr 2025</td>
+                  <td><span class="cal-status current">Current Phase</span></td>
+                </tr>
+                <tr>
+                  <td>Publication of Internal Marks &amp; Attendance</td>
+                  <td>05 May 2025</td>
+                  <td><span class="cal-status upcoming">Upcoming</span></td>
+                </tr>
+                <tr>
+                  <td>Last Working Day / End of Classes</td>
+                  <td>09 May 2025</td>
+                  <td><span class="cal-status upcoming">Upcoming</span></td>
+                </tr>
+                <tr>
+                  <td><strong>End Semester University Examinations</strong></td>
+                  <td>19 May 2025 – 12 Jun 2025</td>
+                  <td><span class="cal-status upcoming">Upcoming</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Odd Semester Schedule -->
+        <div id="cal-content-odd" class="cal-schedule-pane" style="display:none;">
+          <div class="cal-table-wrapper">
+            <table class="cal-table">
+              <thead>
+                <tr>
+                  <th>Event / Milestone</th>
+                  <th>Scheduled Date / Period</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Commencement of Classes</strong></td>
+                  <td>01 Aug 2024</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>First Internal Assessment (Test 1)</td>
+                  <td>25 Sep 2024 – 30 Sep 2024</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Second Internal Assessment (Test 2)</td>
+                  <td>15 Nov 2024 – 20 Nov 2024</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>End of Semester / Last Working Day</td>
+                  <td>05 Dec 2024</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>End Semester University Theory Exams</strong></td>
+                  <td>15 Dec 2024 – 10 Jan 2025</td>
+                  <td><span class="cal-status completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <footer class="academic-cal-footer">
+        <a href="https://ktu.edu.in" target="_blank" rel="noopener noreferrer" class="btn-cal-download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download Official Calendar PDF</span>
+        </a>
+        <button id="close-cal-footer-btn" class="btn-cal-dismiss" style="cursor:pointer;">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" style="position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(50px); background:#0f172a; color:#fff; padding:10px 20px; border-radius:20px; font-size:0.85rem; opacity:0; transition:all 0.3s; z-index:2000; box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
